@@ -42,7 +42,7 @@ deactivate
 ```
 cd into main directory using 'cd ~'
 
-Install mysql according to this [documentation] (https://dev.mysql.com/doc/mysql-getting-started/en/#mysql-getting-started-installing)
+Install mysql according to this [documentation](https://dev.mysql.com/doc/mysql-getting-started/en/#mysql-getting-started-installing)
 
 After mysql installation, connecting to mysql server  
 
@@ -55,9 +55,11 @@ Run commands in sequence given below in mysql> prompt:
 
 ```SQL
 CREATE DATABASE users;
+````
 
 ```SQL
 USE users
+```
 
 ```SQL
 CREATE TABLE customers
@@ -69,6 +71,7 @@ CREATE TABLE customers
 	  pass            VARCHAR(50) NULL,					# Password of the customer
 	  PRIMARY KEY     (id)                              # Make the id the primary key
 	);
+```
 
 ```SQL
 CREATE TABLE contacts
@@ -81,9 +84,11 @@ CREATE TABLE contacts
 	  PRIMARY KEY     		 (contactid),                               # Make the contactid the primary key
 	  FOREIGN KEY 			 (customerid) REFERENCES customers(id)      # Make the customerid the foreign key
 	);
+```
 
 ```SQL
 exit
+```
 
 Again cd to directory 'contacts_manager' (change directory)
 

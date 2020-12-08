@@ -6,7 +6,7 @@ class MysqlConfig(object):
             "host": "localhost",
             "port": 3306,
             "username": "root",
-            "password": "#######"  # password of your database
+            "password": "YasMys@1"  # password of your database
         },
         # config for Quality Assurance environment
         "qa": {

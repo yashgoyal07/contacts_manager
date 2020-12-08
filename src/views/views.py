@@ -11,7 +11,7 @@ import os
 template_env = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../', 'templates', )))
 
 # Set the secret key to some random bytes. Keep this really secret!
-app.secret_key = ################   # your secret key (see readme to make a new one)
+app.secret_key = b'\x92\x93cy\x8d\x17\xf9e=\x12\xd7\x13\x97\xedP\xa3'   # your secret key (see readme to make a new one)
 
 
 # views home page with main navbar if not logged in

@@ -17,7 +17,7 @@ class CustomersController(object):
         try:
             # this query find whether customer(user) has signed up already or not
             result = self.mysql_model_obj.extract_query(query=query_1, query_params=(email,))
-            if result[0][1] == name:
+            if len(result) == 0:
                 # if customer(user) is new, Query below will create new customer
                 self.mysql_model_obj.insert_query(query=query_2, query_params=(name, email, mobile, password))
             else:

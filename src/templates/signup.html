@@ -1,0 +1,37 @@
+{% extends 'navbar.html' %}
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <!-- Div For Side Heading -->
+            <div class="col-md-8">
+                <h1 class="text-light display-4 mt-150" style="font-size: 80px;">Create New Contacts Account</h1>
+            </div>
+
+            <!-- Div For Sign Up Card -->
+            <div class="col-md-4">
+                <div class="card  text-white border-light bg-card mt-23" style="width: 18rem;">
+                    <div class="card-body">
+
+                        <!-- Sign Up Form -->
+                        <form action="/signup" target="_blank" method="post" style="text-align: center">
+                            <label>Name:</label><br>
+                            <input type="text" class="form-control" name="name"><br>
+                            <label>Email:</label><br>
+                            <input type="email" class="form-control" name="email"><br>
+                            <label>Mobile:</label><br>
+                            <input type="tel" class="form-control" name="mobile"><br>
+                            <label>Password:</label><br>
+                            <input type="password" class="form-control" name="pass" ><br>
+                            <input type="submit" class="btn btn-outline-light btn-block btn-lg" value="Sign Up">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

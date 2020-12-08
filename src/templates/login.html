@@ -1,0 +1,41 @@
+{% extends 'navbar.html' %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <!-- Div For Side Heading -->
+            <div class="col-md-8">
+                <h1 class="text-light display-4 mt-150" style="font-size: 80px;">Log In Your Contacts Account</h1>
+            </div>
+
+            <!-- Div For Login Card -->
+            <div class="col-md-4">
+                <div class="card text-white border-light bg-card mt-75" style="width: 18rem;">
+                    <div class="card-body">
+                        <!-- Login Form -->
+                        <form action="/login" method="post" style="text-align: center">
+                            <label>Email:</label><br>
+                            <input type="email" class="form-control" name="email"><br>
+                            <label>Password:</label><br>
+                            <input type="password" class="form-control" name="pass"><br>
+                            <input type="submit" class="btn btn-outline-light btn-block btn-lg" value="Log In">
+                            <br>
+                            <!-- These two buttons for federated Login, Which I add further -->
+                            <p>
+                                <button class="btn btn-outline-light">Google</button>
+                                &nbsp;
+                                <button class="btn btn-outline-light">Facebook</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

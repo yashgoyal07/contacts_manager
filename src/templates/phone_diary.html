@@ -1,0 +1,173 @@
+{% extends 'diary_navbar.html' %}
+{% block title %}
+    Phone Diary
+{% endblock %}
+
+{% block customer_name %}
+    {{ name }}
+{% endblock %}
+
+{% block body %}
+    <!-- Side Navigation Bar -->
+    <div class="sidenav">
+        <div class="container" style="text-align: center">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-light mt-20" data-toggle="modal"
+                    data-target="#exampleModalCenter">
+                + Create Contact
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Div Where Each Contact Card Placed -->
+
+    <!-- Heading Card -->
+    <div class="main p-0">
+        <div class="container bg-card2 border-bottom">
+            <div class="row text-light" style="font-family: 'Sansita Swashed', cursive;">
+                <div class="col-lg-3 pl-2 d-flex justify-content-center">
+                    <p style="margin-bottom: unset">Name</p>
+                </div>
+                <div class="col-lg-3 p-0 d-flex justify-content-center">
+                    <p style="margin-bottom: unset">Contact</p>
+                </div>
+                <div class="col-lg-3 p-0 d-flex justify-content-center">
+                    <p style="margin-bottom: unset">Description</p>
+                </div>
+                <div class="col-lg-3 p-0 d-flex justify-content-center">
+                    <p style="margin-bottom: unset">Actions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contacts Card One By One -->
+        <div class="container p-0">
+            {% for item in list %}
+                <div class="card bg-card text-light">
+                    <div class="card-body p-2">
+                        <div class="row text-light" style="font-family: 'Sansita Swashed', cursive;">
+
+                            <!-- Contact Name -->
+                            <div class="col-lg-3 d-flex justify-content-center">
+                                <p style="margin-bottom: unset">{{ item[1] }}</p>
+                            </div>
+
+                            <!-- Contact Number -->
+                            <div class="col-lg-3 d-flex justify-content-center">
+                                <p style="margin-bottom: unset">{{ item[2] }}</p>
+                            </div>
+
+                            <!-- Contact Description -->
+                            <div class="col-lg-3 d-flex justify-content-center">
+                                <p style="margin-bottom: unset">{{ item[3] }}</p>
+                            </div>
+
+                            <!-- Action Buttons For Each Contact -->
+                            <div class="col-lg-3 d-flex justify-content-center">
+
+                                <!-- Edit Button -->
+                                <a type="button" data-toggle="modal" data-target="#example1ModalCenter"
+                                   data-conid="{{ item[0] }}"
+                                   data-name="{{ item[1] }}" data-contact="{{ item[2] }}"
+                                   data-description="{{ item[3] }}">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                         class="icon icon2 bi bi-pencil mr-20"
+                                         fill="currentColor"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                </a>
+
+                                <!-- Delete Button -->
+                                <a href="/del_con/{{ item[0] }}">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="icon bi bi-trash mr-20"
+                                         fill="currentColor"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                        <path fill-rule="evenodd"
+                                              d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="width: 20rem;" role="document">
+                <div class="modal-content text-white border-light bg-card mt-75">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Create New Contact</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/cr_con" method="post" style="text-align: center">
+                            <label>Name:</label><br>
+                            <input type="text" class="form-control" name="name"><br>
+                            <label>Contact No.:</label><br>
+                            <input type="tel" class="form-control" name="mobile"><br>
+                            <label>Description:</label><br>
+                            <input type="text" class="form-control" name="description"><br>
+                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" name="submit" class="btn btn-outline-light">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- update Modal -->
+        <div class="modal fade" id="example1ModalCenter" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="width: 20rem;" role="document">
+                <div class="modal-content text-white border-light bg-card mt-75">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Update Contact</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="cr_con_form" method="post" style="text-align: center">
+                            <label>Name:</label><br>
+                            <input type="text" class="form-control" name="name"><br>
+                            <label>Contact No.:</label><br>
+                            <input type="tel" class="form-control" name="mobile"><br>
+                            <label>Description:</label><br>
+                            <input type="text" class="form-control" name="description"><br>
+                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" id="button1" name="submit" class="btn btn-outline-light">Update
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Necessary Scripts For Edit Modal -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $('#example1ModalCenter').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var name = button.data('name')
+            var contact = button.data('contact')
+            var description = button.data('description')
+            var url = button.data('conid')
+            var modal = $(this)
+            modal.find('.modal-body input[name="name"]').val(name)
+            modal.find('.modal-body input[name="mobile"]').val(contact)
+            modal.find('.modal-body input[name="description"]').val(description)
+            $('#cr_con_form').attr('action', '/upd_con/' + url);
+        })
+    </script>
+{% endblock %}

@@ -4,7 +4,7 @@ Web Application to store and manage contacts.
 
 ## Installation
 
-Clone this directory in your system.
+Clone this directory in your system.(Here, Ubuntu was used)
 
 Install Python 3.8.5
 
@@ -16,7 +16,7 @@ python3 -m pip install --user --upgrade pip
 Install virtual environment
 
 ```bash
-python -m pip install --user virtualenv
+python3 -m pip install --user virtualenv
 ```
 cd to directory 'contacts_manager' (change directory)
 
@@ -101,7 +101,7 @@ source venv/bin/activate
 Install mysql-connector-python using command given below
 
 ```bash
-python -m pip install mysql-connector-python
+python3 -m pip install mysql-connector-python
 ```
 After that runs command given below with path of src folder of contacts_manager directory
 

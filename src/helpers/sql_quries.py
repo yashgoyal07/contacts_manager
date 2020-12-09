@@ -15,7 +15,7 @@ check_cred = f"""SELECT * FROM  {MysqlConfig.USER_DATABASE}.{MysqlConfig.CUSTOME
 find_customer_id = f"""SELECT * FROM {MysqlConfig.USER_DATABASE}.{MysqlConfig.CUSTOMERS_TABLE} WHERE email = %s and pass = %s"""
 
 # Query for showing contacts of particular customer(user) using customer's id
-show_contact = f"""SELECT * FROM {MysqlConfig.USER_DATABASE}.{MysqlConfig.CONTACTS_TABLE} WHERE customerid = %s"""
+show_contact = f"""SELECT * FROM {MysqlConfig.USER_DATABASE}.{MysqlConfig.CONTACTS_TABLE} WHERE customerid = %s ORDER BY contactname"""
 
 # Query for deleting particular contact of particular customer(user) using customer's id and contact's id
 delete_contact = f"""DELETE FROM {MysqlConfig.USER_DATABASE}.{MysqlConfig.CONTACTS_TABLE} WHERE contactid = %s and customerid = %s"""
